@@ -32,11 +32,12 @@ var pageOne = {
                 class: "title"
             }, "How much do you love me?"),
             m("button.w3-btn-block", {
-                onclick: function() {
-                    if (count < 100) count++;
-                    else if (count === 100) document.write("<h1>Hello World!</h1><p>Have a nice day!</p>")
-                }
-            }, count + " %"),
+                    onclick: function() {
+                        if (count < 100) count++;
+                        else if (count === 100) location.href = '#!pageTwo'
+                    }
+                },
+                count + " %"),
         ])
     }
 }
@@ -44,7 +45,8 @@ var pageOne = {
 var pageTwo = {
 
     view: function() {
-        return m("two", [
+        return m("two", [ <
+
 
         ])
     }
