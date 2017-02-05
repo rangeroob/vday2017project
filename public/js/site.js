@@ -29,12 +29,12 @@ var pageOne = {
 
         return m("main", [
             m("h1.w3-center", {
-                class: "title"
+                class: "pageonetitle"
             }, "How much do you love me?"),
             m("button.w3-btn-block", {
                     onclick: function() {
                         if (count < 100) count++;
-                        else if (count === 100) location.href = '#!pageTwo'
+                        else if (count === 100) location.href = '#!/two'
                     }
                 },
                 count + " %"),
@@ -46,8 +46,19 @@ var pageTwo = {
 
     view: function() {
         return m("two", [
-
-
+            m("h1.w3-center", "Aw you love me that much, huh?"),
+            m("h2.w3-center", "here this is for you:"),
+            m("a[href='#!/splash']",
+                m("img.w3-container[alt='heart'][src='public/imgs/Love_Heart_SVG.svg.png']", {
+                    style: {
+                        "display": "block",
+                        "margin": "auto",
+                        "width": "auto",
+                        "height": "500px",
+                        "border": "0"
+                    }
+                })),
+            m("p.w3-center", "click me"),
         ])
     }
 }
