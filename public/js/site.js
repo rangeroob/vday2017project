@@ -4,6 +4,7 @@ var count = 0;
 
 
 
+
 var Splash = {
 
     view: function() {
@@ -27,7 +28,7 @@ var pageOne = {
 
     view: function() {
 
-        return m("main", [
+        return m("one", [
             m("h1.w3-center", {
                 class: "pageonetitle"
             }, "How much do you love me?"),
@@ -48,7 +49,7 @@ var pageTwo = {
         return m("two", [
             m("h1.w3-center", "Aw you love me that much, huh?"),
             m("h2.w3-center", "here this is for you:"),
-            m("a[href='#!/splash']",
+            m("a[href='#!/three']",
                 m("img.w3-container[alt='heart'][src='public/imgs/Love_Heart_SVG.svg.png']", {
                     style: {
                         "display": "block",
@@ -63,8 +64,30 @@ var pageTwo = {
     }
 }
 
+
+var pageThree = {
+    view: function() {
+        return m("three", [
+            onload: function carousel() {
+                //placeholder
+            }
+            m("div.w3-content.w3-section", {
+                    style: { "max-width": "500px" }
+                }, m("p", "text here"),
+                m("img.mySlides.w3-animate-fading[src='public/imgs/11391456_10207210124710859_4756487654378708258_n.jpg']", { style: { "width": "100%" } }),
+                m("img.mySlides.w3-animate-fading[src='public/imgs/12592258_10209357967485586_675038987809379215_n.jpg']", { style: { "width": "100%" } }),
+                m("img.mySlides.w3-animate-fading[src='public/imgs/15747902_10211941713037610_3506112968939664692_n.jpg']", { style: { "width": "100%" } }),
+                m("img.mySlides.w3-animate-fading[src='public/imgs/16252514_1401420696535254_833255865077845373_o.jpg']", { style: { "width": "100%" } }),
+                m()
+            )
+
+        ])
+    }
+}
+
 m.route(root, "/splash", {
     "/splash": Splash,
     "/one": pageOne,
     "/two": pageTwo,
+    "/three": pageThree,
 })
