@@ -5,16 +5,9 @@ var count = 0;
 
 //pageThree
 
-var slides = document.querySelectorAll('#slides .slide');
-var currentSlide = 0;
-var slideInterval = window.setInterval(nextSlide, 2000);
 
-function nextSlide() {
-    slides[currentSlide].className = 'slide';
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].className = 'slide showing';
 
-}
+
 // getting slides[currentSlides] is undefined line 13
 var Splash = {
 
@@ -44,10 +37,10 @@ var pageOne = {
                 class: "pageonetitle"
             }, "How much do you love me?"),
             m("button.w3-btn-block", {
-                    onclick: function() {
+                    onclick: (function() {
                         if (count < 100) count++;
                         else if (count === 100) location.href = '#!/two'
-                    }
+                    })
                 },
                 count + " %"),
         ])
@@ -76,29 +69,51 @@ var pageTwo = {
 }
 
 var pageThree = {
+
     view: function() {
-        return m("three",
-            m("ul[id='slides']", [
-                m("li.slide.showing",
-                    "Slide 1"
-                ),
-                m("li.slide",
-                    "Slide 2"
-                ),
-                m("li.slide",
-                    "Slide 3"
-                ),
-                m("li.slide",
-                    "Slide 4"
-                ),
-                m("li.slide",
-                    "Slide 5"
-                ),
+        var poem = [
+            "I love you,", "In a House,", "With a Mouse,", "Here or There", "Anywhere",
+            "In a Box", "with a Fox", "In a Car", "In a Tree", "On a Train", "In the Rain", "In the Dark", "With a Goat",
+            "On a Boat", "Forever"
+        ]
+        return m("three.w3-content.w3-section",
+            m("h1.w3-center", "A little poem"),
+            m("h2.w3-center", "Titled: I Love You"),
+            m("div.w3-center",
+                m("p", poem[0]),
+                m("p", poem[1]),
+                m("p", poem[0]),
+                m("p", poem[2]),
+                m("p", poem[0]),
+                m("p", poem[3]),
+                m("p", poem[0]),
+                m("p", poem[4]),
+                m("p", poem[0]),
+                m("p", poem[5]),
+                m("p", poem[0]),
+                m("p", poem[6]),
+                m("p", poem[0]),
+                m("p", poem[7]),
+                m("p", poem[0]),
+                m("p", poem[8]),
+                m("p", poem[0]),
+                m("p", poem[9]),
+                m("p", poem[0]),
+                m("p", poem[10]),
+                m("p", poem[0]),
+                m("p", poem[11]),
+                m("p", poem[0]),
+                m("p", poem[12]),
+                m("p", poem[0]),
+                m("p", poem[13]),
+                m("p", poem[0]),
+                m("h2", poem[14])
+            ))
 
-            ]))
+
     }
-}
 
+}
 m.route(root, "/splash", {
     "/splash": Splash,
     "/one": pageOne,
